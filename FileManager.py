@@ -4,11 +4,9 @@ import csv
 
 class FileManager():
     
-    def __init__(self,output_folder,file_name,extension,append_time=True):
+    def __init__(self,output_folder,file_name):
         self.__output_folder = output_folder
         self.__file_name = file_name
-        self.__append_time = append_time
-        self.__file_extension = extension
         
     def getOutputFolder(self):
         return self.__output_folder
@@ -16,12 +14,9 @@ class FileManager():
     def getFileName(self):
         return self.__file_name
     
-    def getExtension(self):
-        return self.__file_extension
-    
     def saveOutput(self,games=[{"empty"}],headers = [{"empty"}]):
         
-        fulladdress = self.getFullOutputFileAddress()
+        fulladdress = ''.join([self.getOutputFolder(),self.getFileName()])
         
         try:
             with open(fulladdress,"a",newline='',encoding="utf-8") as file:
@@ -39,17 +34,3 @@ class FileManager():
         finally:
             file.close()
             
-    def getFullOutputFileAddress(self):
-        
-        str_1 = ""
-        str_2 = ""
-        str_3 = ""
-        
-        str_1 = ''.join([self.getOutputFolder(),self.getFileName()])
-        
-        if(self.__append_time):
-            str_2 = datetime.now().replace(":","")
-        
-        str_3 = self.getExtension()
-        
-        return ''.join([str_1,str_2,str_3])

@@ -7,13 +7,12 @@ from DateUtils import DateUtils
 
 class Page:
         
-    def __init__(self,base,headers,page=1,platform=EPlatform.ALL,genre=EGenre.ALL):
+    def __init__(self,base,page=1,platform=EPlatform.ALL,genre=EGenre.ALL):
         self.__url_base = base
         self.__page = page
         self.__platform = platform.value
         self.__genre = genre.value  
         self.__games = [] 
-        self.__headers = headers
         
     def next_page(self):
         self.__page = self.__page + 1
@@ -40,9 +39,7 @@ class Page:
             self.__platform,
             self.__genre
         )
-        
-        print("BASE_URL -> {}".format(url))
-    
+            
         response = requests.get(url)
         
         du = DateUtils()
