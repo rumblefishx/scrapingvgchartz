@@ -5,6 +5,6 @@ platforms available are just PS4,NS,XOne (Playstation 4, Nintendo Switch and Xbo
 
 HOW TO USE:
 
-python3 scrapingvgchartz --platform "PS4" --output "/PATH/TO/OUTPUT/FOLDER/"
+python3 vgchartzdown.py --platform "PS4" --output "/PATH/TO/OUTPUT/FOLDER/"
 
 platform values available : PS4,NS,XOne
